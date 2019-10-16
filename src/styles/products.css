@@ -1,0 +1,11 @@
+
+
+.products{ 
+    margin : 0 auto ; 
+    box-shadow: 0 2px 4px #aaa ; 
+}
+
+.product{
+    text-align:center ;
+    box-shadow: 0 2px 4px #ccc ; 
+}

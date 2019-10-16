@@ -1,0 +1,1 @@
+export const NUM_OF_PRODUCTS = 1000 ; 

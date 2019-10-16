@@ -1,0 +1,27 @@
+Shopping card:
+
+We have a list of items (1000), once we fetched them we want to
+ 1 - show them in a list
+ 2 - select them
+ 3 - add them into second list
+ 4 - move them back to original list
+ 5 - if the item exceeded the balance, show the extra ones in red starting from the last item
+
+Item:
+{
+    id: ###,
+    name: 'item - ' + ###
+    weight: [0.10 - 0.99]
+}
+
+UI:
+balance: [3]
+
+list 1       list 2
+[x     ]  |   [      ]
+[      ]  |   [      ]
+[      ]  |   [err   ]
+[      ]  |   [err   ]
+
+<more>    |   <remove>
+<select>

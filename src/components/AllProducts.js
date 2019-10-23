@@ -2,12 +2,12 @@ import React from 'react'
 // import PropTypes from 'prop-types'
 import Product from './Product';
 
-import {  
+import {
     Typography
-} from '@material-ui/core'  ; 
+} from '@material-ui/core';
 
 
-function AllProducts({ products, handleAddToSecondList }) {
+function AllProducts({ products, handleAddToSecondList ,handleRemoveFromSecondList }) {
 
     return (
         <div className="allproducts">
@@ -18,7 +18,20 @@ function AllProducts({ products, handleAddToSecondList }) {
 
                 products.map(p => {
 
-                    return <Product prod={p} key={p.id} addToSecondList={handleAddToSecondList} />
+                    return (
+                        <Product
+
+                            prod={p}
+
+                            key={p.id}
+
+                            addToSecondList={handleAddToSecondList}
+
+                            removeFromSecondList={handleRemoveFromSecondList} 
+                            
+                            checkBoxExists={true}
+                            />
+                    )
 
                 })
 

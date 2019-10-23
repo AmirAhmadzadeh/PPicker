@@ -3,11 +3,12 @@
 
 import React, { useEffect } from 'react';
 
-import StyledCheckbox from './UI/CheckBox';
-
 import useValueText from '../hooks/useValueText';
 
 import { SELECTED, UNSELECTED } from './constants';
+
+
+import ShowMsg from './UI/Snakebar';
 
 
 function Product(props) {
@@ -17,7 +18,7 @@ function Product(props) {
     function handleClicked(e) {
 
         // console.log(e.target.value) ; 
-
+        console.log('amir is here for test ');
         if (selectedProductStatus === null) {
 
             setSelectedProductStatus(SELECTED)
@@ -57,11 +58,14 @@ function Product(props) {
             {
                 props.checkBoxExists ?
                     (
-                        <StyledCheckbox
+                        <ShowMsg
+                            
+                            selectedStatus={selectedProductStatus}
+                            
+                            checkBoxClicked={handleClicked}
+                            
+                            />
 
-                            onClick={handleClicked}
-
-                            value={selectedProductStatus} />
 
                     ) : null
             }

@@ -30,6 +30,8 @@ function AllProducts({ products, handleAddToSecondList ,handleRemoveFromSecondLi
                             removeFromSecondList={handleRemoveFromSecondList} 
                             
                             checkBoxExists={true}
+
+
                             />
                     )
 

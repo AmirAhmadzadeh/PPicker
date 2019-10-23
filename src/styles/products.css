@@ -3,9 +3,41 @@
 .products{ 
     margin : 0 auto ; 
     box-shadow: 0 2px 4px #aaa ; 
+    display: flex ; 
+    justify-content: space-between ; 
+  
 }
 
 .product{
     text-align:center ;
-    box-shadow: 0 2px 4px #ccc ; 
+    box-shadow: 0 2px 4px #aaa ; 
+    margin: 0 2.5px ;  
+    /* flex: 1 1 ; */
+    width: 300px ;
+    padding: 1rem ; 
 }
+.allproducts{ 
+    box-shadow: 0 2px 4px #ccc ;
+    width: 50%; 
+    text-align: center ;
+    display: flex  ;
+    flex-direction : column ; 
+    justify-content: flex-start ; 
+    align-items: center ;
+}
+.selectedProducts{ 
+    box-shadow: 0 2px 4px #ccc ;
+    width: 50%; 
+    text-align: center ;
+    display: flex  ;
+    flex-direction : column ; 
+    justify-content: flex-start ; 
+    align-items: center ; 
+}
+.h{ 
+    color:#ccc  ; 
+    background-color: #4981bf ;
+    padding: 1.5rem;  
+    margin : 2rem  0 !important ; 
+    border-radius: 20px ; 
+    text-transform: uppercase ; }

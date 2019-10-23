@@ -1,14 +1,19 @@
 import React from 'react';
+
 import './App.css';
-<<<<<<< HEAD
-import Products from './components/Products'
-=======
-import Products from '../src/components/Product'
->>>>>>> origin/master
+
+import Products from './components/Products' ; 
+
+import Header from './components/Header' ;    
+
 function App() {
-  return (
+
+  return ( 
+
     <div className="App">
+      <Header/>
       <Products />
+   
     </div>
   );
 }

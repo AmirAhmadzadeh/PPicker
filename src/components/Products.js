@@ -11,8 +11,9 @@ import useCurrProductIdx from '../hooks/useCurrProductIdx';
 
 import { TIMER_OF_ADDING } from './constants'
 
+import AllProducts from './AllProducts' ; 
 
-const StoreContext = React.createContext();
+import SelectedProducts from './SelectedProducts'  ; 
 
 
 
@@ -22,6 +23,15 @@ function Products() {
 
     const [currProductIdx, setCurIdx] = useCurrProductIdx(0);
 
+    const [selectedProducts, setSelectedProducts] = useProducts([]);
+
+    function handleAddToSecondList(prod){
+
+        console.log('amirr is here' , prod) ; 
+        
+        setSelectedProducts(prod)
+    
+    }
 
     function addTheProductsPerAsecond() {
 
@@ -40,34 +50,23 @@ function Products() {
 
     }
 
-    
+
     useEffect(() => {
-     
-        const interval =setInterval(addTheProductsPerAsecond, TIMER_OF_ADDING) ; 
-     
+
+        const interval = setInterval(addTheProductsPerAsecond, TIMER_OF_ADDING);
+
         return () => clearInterval(interval);
 
     })
 
-    console.log('amir is here ', products, currProductIdx);
-
+    // console.log(selectedProducts , 'hoooooo') ; 
     return (
-        <StoreContext.Provider value={products}>
-            <div className="products">
-                {
-                  
 
-                        products.map(p => {
+        <div className="products">
+            <AllProducts handleAddToSecondList={handleAddToSecondList} products={products} />
+            <SelectedProducts products={selectedProducts}/>
+        </div>
 
-                            return <Product prod={p} key={p.id} />
-
-                        })
-
-                   
-                }
-
-            </div>
-        </StoreContext.Provider>
     )
 }
 

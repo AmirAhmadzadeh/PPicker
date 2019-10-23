@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 
 import data from './data';
 
-import Product from './Product';
 
 import useProducts from '../hooks/useProducts';
 
@@ -23,14 +22,34 @@ function Products() {
 
     const [currProductIdx, setCurIdx] = useCurrProductIdx(0);
 
-    const [selectedProducts, setSelectedProducts] = useProducts([]);
+    const [selectedProducts, setSelectedProducts , resetProducts ] = useProducts([]);
 
-    function handleAddToSecondList(prod){
+    function handleAdd(prod){
 
-        console.log('amirr is here' , prod) ; 
+       
+
+        const res = selectedProducts.findIndex(p => {
+             return p.id === prod[0].id
+        }) ; 
         
-        setSelectedProducts(prod)
+
+        if (res === -1)  setSelectedProducts(prod)  ;
+        
+       
     
+    }
+
+
+    function handleRemove(prd) {
+
+        // console.log('helooo from remove', prd) ;
+
+        const newSelectedProds =  selectedProducts.filter(p => {
+            return p.id !== prd.id  ; 
+        })
+        
+        resetProducts(newSelectedProds) ; 
+
     }
 
     function addTheProductsPerAsecond() {
@@ -63,7 +82,17 @@ function Products() {
     return (
 
         <div className="products">
-            <AllProducts handleAddToSecondList={handleAddToSecondList} products={products} />
+            
+            <AllProducts 
+            
+             handleAddToSecondList={handleAdd}
+             
+             products={products}
+             
+             handleRemoveFromSecondList={handleRemove}
+            
+            />
+
             <SelectedProducts products={selectedProducts}/>
         </div>
 

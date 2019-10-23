@@ -1,29 +1,48 @@
 
 
 
-import React , { useEffect } from 'react' ; 
+import React, { useEffect } from 'react';
 
-import StyledCheckbox from './UI/CheckBox' ; 
+import StyledCheckbox from './UI/CheckBox';
 
-import useBooleanState from './../hooks/useBoolean' ; 
+import useValueText from '../hooks/useValueText';
+
+import { SELECTED, UNSELECTED } from './constants';
+
 
 function Product(props) {
 
-    const [selectedProduct , setSelectedProduct] = useBooleanState(false) ; 
+    const [selectedProductStatus, setSelectedProductStatus] = useValueText();
 
     function handleClicked(e) {
 
         // console.log(e.target.value) ; 
-        
-        setSelectedProduct() ; 
-   
+
+        if (selectedProductStatus === null) {
+
+            setSelectedProductStatus(SELECTED)
+
+        }
+        else if (selectedProductStatus === SELECTED) {
+
+            setSelectedProductStatus(UNSELECTED)
+
+        }
+        else if (selectedProductStatus === UNSELECTED) {
+
+            setSelectedProductStatus(SELECTED);
+
+        }
+
     }
     // console.log(props) ; 
     useEffect(() => {
 
-         if ( selectedProduct ) props.addToSecondList([props.prod])  ;
-        //  else if ( !selectedProduct)     
-    }, [selectedProduct]) 
+        // console.log('ehlooooo')
+        if (selectedProductStatus === SELECTED) props.addToSecondList([props.prod]);
+        else if (selectedProductStatus === UNSELECTED) props.removeFromSecondList(props.prod);
+
+    }, [selectedProductStatus])
 
     return (
 
@@ -34,12 +53,22 @@ function Product(props) {
             <p>{props.prod.id}</p>
 
             <p>{props.prod.weight}</p>
-            
-            <StyledCheckbox onClick={handleClicked} value={selectedProduct} />
+
+            {
+                props.checkBoxExists ?
+                    (
+                        <StyledCheckbox
+
+                            onClick={handleClicked}
+
+                            value={selectedProductStatus} />
+
+                    ) : null
+            }
 
         </div>
 
-    )  
+    )
 
 }
 

@@ -8,5 +8,6 @@ export default function (initData = 1) {
     const setCurrIdx = (value) => {
         setState(value)
     };
+   
     return [state , setCurrIdx ]
 }

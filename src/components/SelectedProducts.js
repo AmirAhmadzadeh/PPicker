@@ -25,7 +25,7 @@ function Products({products}) {
 
                         products.map(p => {
 
-                            return <Product prod={p} key={p.id} />
+                            return <Product prod={p} key={p.id} checkBoxExists={false} />
 
                         })
 

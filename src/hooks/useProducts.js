@@ -10,6 +10,10 @@ export default function (initData) {
     const fillProducts = (data) => {
         setState([...state,...data])
     };
+
+    const resetProds = (prods) => {
+        setState(prods) ; 
+    }
   
-    return [state , fillProducts ]
+    return [state , fillProducts , resetProds  ]
 }
